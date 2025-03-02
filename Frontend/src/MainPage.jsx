@@ -22,7 +22,7 @@ function MainPage() {
   async function reviewCode() {
     setIsLoading(true); // Show loader
     try {
-      const response = await axios.post("http://localhost:3001/ai/get-review", { code });
+      const response = await axios.post("https://ai-powered-code-reviewer-fmua.onrender.com", { code });
       setReview(response.data);
     } catch (error) {
       setReview("❌ Error: Unable to fetch review. Please try again.");
