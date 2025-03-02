@@ -88,13 +88,14 @@ main .left .review:active {
 main .right {
   background-color: #343434;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
-  overflow: auto;
+  font-size: 1.2rem;  /* Adjust font size */
+  overflow: auto;  /* Enable scrolling if content overflows */
+  height: 100%;
+  width: 100%;
   color: white;
   border-radius: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  word-wrap: break-word;  /* Ensures long words break into new lines */
+  white-space: pre-wrap;  /* Preserves formatting while wrapping text */
 }
 
 /* Loader Animation */
