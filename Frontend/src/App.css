@@ -1,0 +1,147 @@
+/* Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  background-image: url('back.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Main Layout */
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Left & Right Sections */
+main .left,
+main .right {
+  flex: 1;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Left Section (Code Editor) */
+main .left {
+  background-color: #000000;
+  position: relative;
+}
+
+.left .code {
+  flex-grow: 1;
+  background-color: #0c0c0c;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  display: flex;
+}
+
+.code pre {
+  flex-grow: 1;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  background-color: #0c0c0c;
+  color: white;
+  font-family: "Fira Code", monospace;
+  overflow: auto;
+}
+
+/* Review Button */
+main .left .review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgb(219, 219, 255);
+  color: black;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+main .left .review:hover {
+  background-color: rgb(190, 190, 255);
+}
+
+main .left .review:active {
+  transform: scale(0.95);
+}
+
+/* Right Section (Output & Loader) */
+main .right {
+  background-color: #343434;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  overflow: auto;
+  color: white;
+  border-radius: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loader Animation */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  main {
+    flex-direction: column;
+  }
+  main .left,
+  main .right {
+    flex-basis: auto;
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+  main .left .review {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main .left .review {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  .right {
+    font-size: 1rem;
+  }
+}
